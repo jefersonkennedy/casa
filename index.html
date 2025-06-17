@@ -1,1 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecionando...</title>
+  <script>
+    // Função para obter o valor de um parâmetro na URL
+    function getParametro(nome) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(nome);
+    }
 
+    // Executa o redirecionamento com base no parâmetro "local"
+    window.onload = function() {
+      const local = getParametro('local');
+      if (local) {
+        const destino = `http://home.ktecheletronicos.com.br:8123/local${local}`;
+        window.location.href = destino;
+      } else {
+        document.body.innerHTML = "<h2>Parâmetro 'local' não especificado na URL.</h2>";
+      }
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecionando...</p>
+</body>
+</html>
